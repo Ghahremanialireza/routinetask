@@ -1,0 +1,22 @@
+# Database files
+*.db
+*.db-journal
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Go
+backend/server
+backend/*.exe
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+
+# OS / editor
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
