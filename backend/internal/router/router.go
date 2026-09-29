@@ -9,13 +9,13 @@ import (
 	"github.com/Ghahremanialireza/routinetask-backend/internal/handlers"
 )
 
-func New(taskRepo *database.TaskRepository) *chi.Mux {
+func New(taskRepo *database.TaskRepository, allowedOrigin string) *chi.Mux {
 	r := chi.NewRouter()
 
 	r.Use(middleware.Logger)
 	r.Use(middleware.Recoverer)
 	r.Use(cors.Handler(cors.Options{
-		AllowedOrigins:   []string{"http://localhost:3000"},
+		AllowedOrigins:   []string{allowedOrigin},
 		AllowedMethods:   []string{"GET", "POST", "PATCH", "DELETE", "OPTIONS"},
 		AllowedHeaders:   []string{"Content-Type"},
 		AllowCredentials: false,
