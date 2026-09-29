@@ -31,10 +31,19 @@ cd backend && docker build -t routinetask-backend .
 cd ../frontend && docker build -t routinetask-frontend .
 ```
 
+## Run with Docker Compose
+
+```bash
+docker compose up --build -d
+```
+
+Frontend: http://localhost:3000
+Backend health: http://localhost:8080/health
+
 ## Roadmap
 - [x] Go API + Next.js UI
 - [x] Dockerfiles (multi-stage)
-- [ ] Docker Compose
+- [x] Docker Compose
 - [ ] CI/CD (GitLab CI)
 - [ ] Kubernetes + Helm
 - [ ] ArgoCD (GitOps)
