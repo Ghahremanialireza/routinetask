@@ -6,8 +6,6 @@ WORKDIR /app
 COPY go.mod go.sum ./
 
 ENV GOPROXY=https://goproxy.cn,direct
-ENV GOSUMDB=off
-
 RUN go mod download
 
 COPY . .
@@ -19,6 +17,9 @@ FROM alpine:3.20
 WORKDIR /app
 
 COPY --from=builder /app/server .
+
+RUN mkdir -p /data
+ENV DB_PATH=/data/routinetask.db
 
 EXPOSE 8080
 
