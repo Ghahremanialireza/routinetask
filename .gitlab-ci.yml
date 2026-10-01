@@ -1,9 +1,17 @@
 stages:
   - test
 
+stages:
+  - test
+
+variables:
+  GOPROXY: "https://goproxy.io,direct"
+  GOSUMDB: "off"
+
 backend-build-check:
   stage: test
   image: golang:1.27.1-alpine
   script:
     - cd backend
     - go build ./...
+
