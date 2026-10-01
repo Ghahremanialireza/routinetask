@@ -1,0 +1,9 @@
+stages:
+  - test
+
+backend-build-check:
+  stage: test
+  image: golang:1.27.1-alpine
+  script:
+    - cd backend
+    - go build ./...
