@@ -33,6 +33,7 @@ export default function Home() {
   }
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- loadTasks sets state asynchronously after awaiting the API call, not synchronously within the effect body.
     loadTasks();
   }, []);
 
