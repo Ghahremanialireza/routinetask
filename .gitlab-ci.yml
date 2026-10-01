@@ -6,8 +6,6 @@ variables:
   GOPROXY: "https://goproxy.io,direct"
   GOSUMDB: "off"
 
-# ---------- TEST STAGE ----------
-
 backend-test:
   stage: test
   image: golang:1.27.1-alpine
@@ -25,11 +23,9 @@ frontend-test:
     - npm run lint
     - npm run build
 
-# ---------- BUILD STAGE ----------
-
 backend-docker-build:
   stage: build
-  image: docker:24.0.5
+  image: docker:27
   script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker build -t $CI_REGISTRY_IMAGE/backend:$CI_COMMIT_SHORT_SHA -t $CI_REGISTRY_IMAGE/backend:latest ./backend
@@ -40,7 +36,7 @@ backend-docker-build:
 
 frontend-docker-build:
   stage: build
-  image: docker:24.0.5
+  image: docker:27
   script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker build --build-arg NEXT_PUBLIC_API_URL=http://localhost:8080 -t $CI_REGISTRY_IMAGE/frontend:$CI_COMMIT_SHORT_SHA -t $CI_REGISTRY_IMAGE/frontend:latest ./frontend
