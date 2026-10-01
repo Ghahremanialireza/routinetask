@@ -44,6 +44,6 @@ Backend health: http://localhost:8080/health
 - [x] Go API + Next.js UI
 - [x] Dockerfiles (multi-stage)
 - [x] Docker Compose
-- [ ] CI/CD (GitLab CI)
+- [x] GitLab CI/CD pipeline (test + build + push to registry)
 - [ ] Kubernetes + Helm
 - [ ] ArgoCD (GitOps)
