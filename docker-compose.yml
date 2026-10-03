@@ -2,6 +2,7 @@ services:
   backend:
     build:
       context: ./backend
+    image: alirezaghahremani/routinetask-backend:latest
     container_name: routinetask-backend
     ports:
       - "8080:8080"
@@ -22,6 +23,7 @@ services:
       context: ./frontend
       args:
         NEXT_PUBLIC_API_URL: http://localhost:8080
+    image: alirezaghahremani/routinetask-frontend:latest
     container_name: routinetask-frontend
     ports:
       - "3000:3000"

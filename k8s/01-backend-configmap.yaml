@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  namespace: routinetask
+data:
+  DB_PATH: "/data/routinetask.db"
+  PORT: "8080"
+  CORS_ALLOWED_ORIGIN: "http://localhost:30080"
